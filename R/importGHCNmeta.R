@@ -223,7 +223,7 @@ getDailyMeta <- function() {
   t <- tempfile()
 
   utils::download.file(
-    "http://www1.ncdc.noaa.gov/pub/data/ghcn/daily/ghcnd-stations.txt",
+    "https://noaa-ghcn-pds.s3.amazonaws.com/ghcnd-stations.txt",
     destfile = t,
     quiet = TRUE
   )
