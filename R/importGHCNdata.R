@@ -124,24 +124,21 @@ importGHCNdaily <- function(code, year, all = FALSE) {
   }
 
   # select specified years
-  id <- as.numeric(format(out$date, "%Y")) %in% year
+  id <- lubridate::year(lubridate::ymd(out$date)) %in% year
   out <- out[id, ]
-
+  
   if (nrow(out) == 0L) {
     message("No data returned.")
     return(NULL)
   }
-
-  # include all?
-  if (!all) {
-    id <-
-      !grepl(
-        "_attributes",
-        names(out)
-      )
-    out <- out[id]
-  }
-
+  
+  # Widen
+  out %>% select(date, element, data_value) %>%
+  tidyr::pivot_wider(
+    names_from = element,
+    values_from = data_value
+  )
+  
   # return
   return(out)
 }
