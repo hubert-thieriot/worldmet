@@ -103,7 +103,7 @@ importGHCNdaily <- function(code, year, all = FALSE) {
     purrr::map_vec(
       .x = code,
       .f = ~ paste0(
-        "https://www.ncei.noaa.gov/data/global-historical-climatology-network-daily/access/",
+        "https://noaa-ghcn-pds.s3.amazonaws.com/csv/by_station/",
         .x,
         ".csv"
       )
