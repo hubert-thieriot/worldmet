@@ -133,11 +133,12 @@ importGHCNdaily <- function(code, year, all = FALSE) {
   }
   
   # Widen
-  out %>% select(date, element, data_value) %>%
-  tidyr::pivot_wider(
-    names_from = element,
-    values_from = data_value
-  )
+  out <- out %>%
+    select(date, element, data_value) %>%
+    tidyr::pivot_wider(
+      names_from = element,
+      values_from = data_value
+    )
   
   # return
   return(out)
