@@ -223,7 +223,7 @@ getMeta <- function(site = "heathrow",
 getMetaLive <- function(...) {
   ## downloads the whole thing fresh
   
-  url <- "https://www1.ncdc.noaa.gov/pub/data/noaa/isd-history.csv"
+  url <- "https://noaa-isd-pds.s3.amazonaws.com/isd-history.csv"
   meta <- read_csv(
     url,
     skip = 21,

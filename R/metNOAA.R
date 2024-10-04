@@ -204,7 +204,7 @@ getDat <- function(code, year, hourly) {
   
   ## location of data
   file.name <- paste0(
-    "https://www.ncei.noaa.gov/data/global-hourly/access/",
+    "https://noaa-global-hourly-pds.s3.amazonaws.com/",
     year, "/", gsub(pattern = "-", "", code), ".csv"
   )
   
